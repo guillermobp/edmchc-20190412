@@ -33,16 +33,20 @@ body {
 
     div.hero-head {
       background-color: white;
+
+      div.is-spaced-evenly {
+        justify-content: space-around;
+
+        img {
+          height: 15vh;
+          width: auto;
+        }
+      }
     }
 
     div.column {
       justify-content: center;
       flex-wrap: wrap;
-    }
-
-    img {
-      height: 10rem;
-      width: auto;
     }
   }
 
