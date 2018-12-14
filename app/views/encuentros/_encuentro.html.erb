@@ -48,52 +48,27 @@
         </div>
     </div>
 
-    <div class="field is-horizontal">
-        <div class="field-label is-normal">
-            <%= form.label :fotos, class: 'label' %>
-        </div>
-        <div class="field-body">
-            <div class="field">
-                <div class="control">
-                    <% if @encuentro.fotos.attached? %>
-                        <% @encuentro.fotos.each do |f| %>
-                            <%= image_tag f.variant(
-                                combine_options: {
-                                    resize: '250',
-                                    crop: '250x250+0+0',
-                                    gravity: 'north'
-                                }
-                            ), class: 'is-square' %>
-                        <% end %>
-                    <% end %>
+    <%= render partial: 'logos', locals: { form: form } %>
 
-                    <% unless 'show' == params[:action] %>
-                    <div class="control">
-                        <div class="file">
-                            <label class="file-label">
-                                <%= form.file_field :fotos, multiple: true, class: 'file-input' %>
-                                <span class="file-cta">
-                                    <span class="file-icon">
-                                        <i class="fas fa-upload"></i>
-                                    </span>
-                                    <span class="file-label">
-                                        Examinar
-                                    </span>
-                                </span>
-                            </label>
-                        </div>
-                    </div>
-                    <% end %>
-                </div>
-            </div>
-        </div>
-    </div>
+    <%= render partial: 'fotos', locals: { form: form } %>
 
     <%= render partial: 'quienes_somos', locals: { form: form } %>
 
     <%= render partial: 'coordinador', locals: { form: form } %>
 
-    <% unless 'show' == params[:action] %>
+    <% if 'show' == params[:action] %>
+    <div class="field is-horizontal">
+        <div class="field-label is-normal">
+        </div>
+        <div class="field-body">
+            <div class="field">
+                <div class="control">
+                    <%= link_to 'Editar', edit_encuentro_path(@encuentro), { class: 'button' } %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% else %>
     <div class="field is-horizontal">
         <div class="field-label is-normal">
         </div>

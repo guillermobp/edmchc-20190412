@@ -11,18 +11,13 @@
   <div class="hero-head">
     <div class="columns is-multiline is-mobile is-centered is-marginless">
       <div class="column is-flex is-centered is-spaced-evenly">
-        <figure class="image">
-          <img src="<%= asset_path('logos/logo_ministerio.png') %>" alt="" />
-        </figure>
-        <figure class="image">
-          <img src="<%= asset_path('logos/logo_uach.jpg') %>" alt="">
-        </figure>
-        <figure class="image">
-          <img src=<%= asset_path('logos/logo_facultad.png') %> alt="" />
-        </figure>
-        <figure class="image">
-          <img src=<%= asset_path('logos/logo_conservatorio.png') %> alt="" />
-        </figure>
+        <% if @encuentro.logos.attached? %>
+          <% @encuentro.logos.each do |logo| %>
+          <figure class="image">
+            <%= image_tag logo %>
+          </figure>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>

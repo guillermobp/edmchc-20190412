@@ -4,6 +4,7 @@ class Encuentro < ApplicationRecord
   has_many :ensayos
   has_many :conciertos
 
+  has_many_attached :logos
   has_many_attached :fotos
   has_one_attached :foto_quienes_somos
   has_one_attached :foto_coordinador
