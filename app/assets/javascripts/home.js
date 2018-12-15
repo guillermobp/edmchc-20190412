@@ -14,7 +14,4 @@ document.addEventListener("turbolinks:load", function() {
       target.classList.add("is-active");
     });
   }
-
-  var lightbox = new Lightbox();
-  lightbox.load();
 });
