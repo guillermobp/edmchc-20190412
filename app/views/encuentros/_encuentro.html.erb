@@ -1,84 +1,82 @@
 <%= form_with model: @encuentro do |form| %>
-    <div class="field is-horizontal">
-        <div class="field-label is-normal">
-        </div>
-        <div class="field-body">
-            <% if flash[:notice] %>
-                <div class="notification is-success"><%= flash[:notice] %></div>
-            <% end %>
-        </div>
-    </div>
-
-    <div class="field is-horizontal">
-      <div class="field-label is-normal">
-        <%= form.label :epigrafe, class: 'label' %>
-      </div>
-      <div class="field-body">
-        <div class="field">
-          <div class="control">
-            <%= form.text_field :epigrafe, class: 'input' %>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="field is-horizontal">
-        <div class="field-label is-normal">
-            <%= form.label :titulo, class: 'label' %>
-        </div>
-        <div class="field-body">
-            <div class="field">
-                <div class="control">
-                    <%= form.text_field :titulo, class: 'input' %>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="field is-horizontal">
-        <div class="field-label is-normal">
-            <%= form.label :bajada, class: 'label' %>
-        </div>
-        <div class="field-body">
-            <div class="field">
-                <div class="control">
-                    <%= form.text_field :bajada, class: 'input' %>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <%= render partial: 'logos', locals: { form: form } %>
-
-    <%= render partial: 'fotos', locals: { form: form } %>
-
-    <%= render partial: 'quienes_somos', locals: { form: form } %>
-
-    <%= render partial: 'coordinador', locals: { form: form } %>
-
-    <% if 'show' == params[:action] %>
-    <div class="field is-horizontal">
-        <div class="field-label is-normal">
-        </div>
-        <div class="field-body">
-            <div class="field">
-                <div class="control">
-                    <%= link_to 'Editar', edit_encuentro_path(@encuentro), { class: 'button' } %>
-                </div>
-            </div>
-        </div>
-    </div>
-    <% else %>
-    <div class="field is-horizontal">
-        <div class="field-label is-normal">
-        </div>
-        <div class="field-body">
-            <div class="field">
-                <div class="control">
-                    <%= form.button class: 'button is-primary' %>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="field is-horizontal">
+  <div class="field-label is-normal"></div>
+  <div class="field-body">
+    <% if flash[:notice] %>
+      <div class="notification is-success"><%= flash[:notice] %></div>
     <% end %>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <%= form.label :epigrafe, class: 'label' %>
+  </div>
+
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <%= form.text_field :epigrafe, class: 'input' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <%= form.label :titulo, class: 'label' %>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <%= form.text_area :titulo, class: 'textarea' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <%= form.label :bajada, class: 'label' %>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <%= form.text_field :bajada, class: 'input' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render partial: 'logos', locals: { form: form } %>
+
+<%= render partial: 'fotos', locals: { form: form } %>
+
+<%= render partial: 'quienes_somos', locals: { form: form } %>
+
+<%= render partial: 'coordinador', locals: { form: form } %>
+
+<% if 'show' == params[:action] %>
+  <div class="field is-horizontal">
+    <div class="field-label is-normal"></div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <%= link_to 'Editar', edit_encuentro_path(@encuentro), { class: 'button' } %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="field is-horizontal">
+    <div class="field-label is-normal"></div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <%= form.button class: 'button is-primary' %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
 <% end %>

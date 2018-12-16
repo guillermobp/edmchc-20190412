@@ -1,10 +1,7 @@
-<section
-  class="hero is-fullheight-with-navbar video"
-  id="inicio"
->
+<section class="hero is-fullheight-with-navbar video" id="inicio">
   <div class="hero-video">
-    <video poster="" id="bgvid" playsinline autoplay muted loop>
-      <source src="Ensamble.mp4" type="video/webm" />
+    <video poster="" id="bgvid" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+      <source src="Ensamble.mp4" type="video/webm"/>
     </video>
   </div>
 
@@ -29,7 +26,7 @@
           <%= @encuentro.epigrafe %>
         </h1>
         <h1 class="title is-1 has-text-white">
-          <%= @encuentro.titulo %>
+          <%= simple_format(@encuentro.titulo) %>
         </h1>
         <h2 class="subtitle is-3 has-text-white">
           <%= @encuentro.bajada %>
