@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "bulma";
+@import "lightbox";
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans|Fira+Sans+Condensed|Fira+Sans+Extra+Condensed");
 @import url("https://fonts.googleapis.com/css?family=Lato");
 @import url("https://fonts.googleapis.com/css?family=EB+Garamond");
@@ -10,59 +11,103 @@ html {
   scroll-behavior: smooth;
 }
 
-h1 {
-  &.subtitle {
-    font-family: "EB Garamond", serif;
-  }
-
-  p {
-    margin: 2.5rem 0;
-    font-family: "Lato", sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1rem;
-    word-spacing: 1rem;
-  }
-}
-h2 {
-  &.subtitle {
-    font-family: "Lato", sans-serif;
-    text-transform: uppercase;
-  }
-}
-
 body {
   margin-bottom: 3.25rem;
   font-family: "Fira Sans";
 
-  section.is-fullheight-with-navbar {
-    background-color: black;
-
-    div.hero-video {
-      height: calc(100vh - 3.25rem);
-      video {
-        opacity: 0.3;
-        max-width: inherit;
-      }
+  h1 {
+    &.title {
+      color: #ba5e66ff;
     }
 
-    div.hero-head {
-      background-color: white;
+    &.subtitle {
+      font-family: "EB Garamond", serif;
+    }
 
-      div.is-spaced-evenly {
-        justify-content: space-evenly;
+    p {
+      margin: 2.5rem 0;
+      font-family: "Lato", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1rem;
+      word-spacing: 1rem;
+    }
+  }
 
-        img {
-          height: 15vh;
-          width: auto;
-          margin: 2vh 0;
+  h2 {
+    &.subtitle {
+      font-family: "Lato", sans-serif;
+      text-transform: uppercase;
+    }
+  }
+
+  section {
+    background-color: #151515ff;
+
+    div.card {
+      background-color: #231f20ff;
+      color: white;
+
+      p.card-header-title {
+        color: #d5993dff;
+      }
+
+      div.card-content {
+        p {
+          margin-top: 1rem;
+
+          &.title {
+            color: #d5993dff;
+          }
+
+          strong {
+            color: white;
+          }
+
+          a.button {
+            margin: 1rem 0;
+          }
         }
       }
     }
 
-    div.column {
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+    &#inicio {
+      background-color: black;
+
+      div.hero-video {
+        height: calc(100vh - 3.25rem);
+
+        video {
+          opacity: 0.3;
+          max-width: inherit;
+        }
+      }
+
+      div.hero-head {
+        background-color: white;
+
+        div.is-spaced-evenly {
+          justify-content: space-evenly;
+
+          img {
+            height: 15vh;
+            width: auto;
+            margin: 2vh 0;
+          }
+        }
+
+        &.column {
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+      }
+    } // #inicio
+
+    &.dodecagono {
+      background-color: #231f20ff;
+      div.hero-body {
+        padding: 0;
+      }
+    } // .dodecagono
   }
 
   // Galería en escala de grises.
@@ -77,5 +122,5 @@ body {
         }
       }
     }
-  }
+  } // .galeria
 }

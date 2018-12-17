@@ -1,21 +1,15 @@
-<section class="hero has-background-dark is-fullheight-with-navbar" id="quienes-somos">
+<section class="hero is-fullheight-with-navbar" id="quienes-somos">
   <div class="hero-body">
     <div class="container has-text-centered">
-      <h1 class="title is-1 has-text-white">Quienes Somos</h1>
+      <h1 class="title is-1">Quienes Somos</h1>
       <div class="columns is-multiline is-mobile is-centered">
         <div class="column is-6">
           <div class="card" style="height:100%">
             <div class="card-image">
               <% if @encuentro.foto_quienes_somos.attached? %>
-              <figure class="image is-square">
-                  <%= image_tag @encuentro.foto_quienes_somos.variant(
-                    combine_options: {
-                      thumbnail: '400x400^',
-                      gravity: 'north',
-                      extent: '400x400'
-                    }
-                  ), class: 'is-square' %>
-              </figure>
+                <figure class="image is-square">
+                  <%= image_tag @encuentro.foto_quienes_somos.variant( combine_options: { thumbnail: '400x400^', gravity: 'north', extent: '400x400' } ), class: 'is-square' %>
+                </figure>
               <% end %>
             </div>
             <div class="card-content">
@@ -35,15 +29,9 @@
           <div class="card" style="height:100%">
             <div class="card-image">
               <% if @encuentro.foto_coordinador.attached? %>
-              <figure class="image is-square">
-                  <%= image_tag @encuentro.foto_coordinador.variant(
-                    combine_options: {
-                      thumbnail: '400x400^',
-                      gravity: 'north',
-                      extent: '400x400'
-                    }
-                  ), class: 'is-square' %>
-              </figure>
+                <figure class="image is-square">
+                  <%= image_tag @encuentro.foto_coordinador.variant( combine_options: { thumbnail: '400x400^', gravity: 'north', extent: '400x400' } ), class: 'is-square' %>
+                </figure>
               <% end %>
             </div>
             <div class="card-content">

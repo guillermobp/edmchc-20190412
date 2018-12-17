@@ -1,37 +1,31 @@
-<section class="hero has-background-dark is-fullheight-with-navbar" id="exponentes">
+<section class="hero is-fullheight-with-navbar" id="exponentes">
   <div class="hero-body">
     <div class="container has-text-centered">
-      <h1 class="title is-1 has-text-white">Exponentes</h1>
+      <h1 class="title is-1">Exponentes</h1>
       <div class="columns is-multiline is-mobile">
         <% @encuentro.exponentes.each do |e|%>
-        <div class="column is-4">
-          <div class="card" style="height:100%">
-            <div class="card-image">
-              <% if (e.foto.attached?) %>
-              <figure class="image is-square">
-                  <%= image_tag e.foto.variant(
-                    combine_options: {
-                      thumbnail: '400x400^',
-                      gravity: 'north',
-                      extent: '400x40'
-                    }
-                  ), class: 'is-square' %>
-              </figure>
-              <% end %>
-            </div>
-            <div class="card-content">
-              <div class="media">
-                <div class="media-content">
-                  <p class="title is-4"><%= e.nombre %></p>
-                </div>
+          <div class="column is-4">
+            <div class="card" style="height:100%">
+              <div class="card-image">
+                <% if (e.foto.attached?) %>
+                  <figure class="image is-square">
+                    <%= image_tag e.foto.variant( combine_options: { thumbnail: '400x400^', gravity: 'north', extent: '400x40' } ), class: 'is-square' %>
+                  </figure>
+                <% end %>
               </div>
-              <div class="content has-text-left">
-                <%= simple_format(truncate(e.bio, length: 400, separator: '')) %>
-                <p><%= link_to 'Ver más' %>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-content">
+                    <p class="title is-4"><%= e.nombre %></p>
+                  </div>
+                </div>
+                <div class="content has-text-left">
+                  <%= simple_format(truncate(e.bio, length: 400, separator: '')) %>
+                  <p><%= link_to 'Ver más' %></p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
         <% end %>
       </div>
     </div>

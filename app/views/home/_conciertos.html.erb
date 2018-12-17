@@ -1,31 +1,34 @@
-<section class="hero has-background-dark is-fullheight-with-navbar" id="conciertos">
+<section class="hero is-fullheight-with-navbar" id="conciertos">
   <div class="hero-body">
     <div class="container has-text-centered">
-      <h1 class="title is-1 has-text-white">Conciertos <%= @encuentro.version %></h1>
+      <h1 class="title is-1">Conciertos
+        <%= @encuentro.version %></h1>
       <div class="tile is-ancestor">
         <% @encuentro.conciertos.each do |c| %>
-        <div class="tile is-parent">
-          <article class="tile is-child notification">
-            <div class="content">
-              <h1 class="title is-3"><%= c.fecha_display %></h1>
-              <article class="media">
-                <div class="media-content">
-                  <div class="content">
-                    <p>
-                      <strong>
-                        Hora: <%= c.hora_display %>
-                        <br>Lugar: <%= c.lugar %>
-                      </strong>
-                      <br><%= c.obras %>
-                      <br><%= c.interpretes %>
-                      <br><%= link_to 'Ver Fotos', concierto_fotos_path(c), class: 'button' if c.fotos.attached? %>
-                    </p>
+          <div class="tile is-parent">
+            <article class="tile is-child notification">
+              <div class="content">
+                <h1 class="title is-3"><%= c.fecha_display %></h1>
+                <article class="media">
+                  <div class="media-content">
+                    <div class="content">
+                      <p>
+                        <strong>
+                          Hora:
+                          <%= c.hora_display %>
+                          <br>Lugar:
+                          <%= c.lugar %>
+                        </strong>
+                        <br><%= c.obras %>
+                        <br><%= c.interpretes %>
+                        <br><%= link_to 'Ver Fotos', concierto_fotos_path(c), class: 'button' if c.fotos.attached? %>
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </article>
-            </div>
-          </article>
-        </div>
+                </article>
+              </div>
+            </article>
+          </div>
         <% end %>
       </div>
     </div>

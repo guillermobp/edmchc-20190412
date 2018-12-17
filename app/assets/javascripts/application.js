@@ -13,9 +13,11 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require lightbox
 //= require_tree .
 
 document.addEventListener("turbolinks:load", function() {
+  console.log('hola')
   var lightbox = new Lightbox();
   lightbox.load();
 });

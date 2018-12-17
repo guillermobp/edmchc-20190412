@@ -1,22 +1,19 @@
-<section class="galeria fotos hero has-background-dark is-fullheight-with-navbar" id="ensayos">
+<section class="galeria fotos hero is-fullheight-with-navbar" id="ensayos">
   <div class="hero-body">
     <div class="container has-text-centered">
-      <h1 class="title is-1 has-text-white">Ensayos <%= @encuentro.version %></h1>
+      <h1 class="title is-1">Ensayos
+        <%= @encuentro.version %></h1>
       <div class="columns is-multiline is-mobile is-gapless">
         <% @encuentro.fotos_ensayos.each do |f|%>
-        <div class="column is-3">
-          <div class="card" style="height:100%">
-            <div class="card-image">
-              <figure class="image is-square">
-                <%= image_tag f.variant(combine_options: {
-                  thumbnail: '350x350^',
-                  gravity: 'north',
-                  extent: '350x350'
-                }), class: 'is-square', data: { jslghtbx: url_for(f), jslghtbx_group: 'fotos-ensayos' }  %>
-              </figure>
+          <div class="column is-3">
+            <div class="card" style="height:100%">
+              <div class="card-image">
+                <figure class="image is-square">
+                  <%= image_tag f.variant(combine_options: { thumbnail: '350x350^', gravity: 'north', extent: '350x350' }), class: 'is-square', data: { jslghtbx: url_for(f), jslghtbx_group: 'fotos-ensayos' } %>
+                </figure>
+              </div>
             </div>
           </div>
-        </div>
         <% end %>
       </div>
     </div>

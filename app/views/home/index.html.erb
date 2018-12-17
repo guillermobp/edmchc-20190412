@@ -2,11 +2,12 @@
 <%= render 'quienes_somos' %>
 <%= render 'exponentes' %>
 <%= render 'charlas' %>
+<%= render partial: 'parallax', locals: { center: 'top' } %>
 <%= render 'conciertos' %>
 <%= render 'ensayos' %>
-
 <%= render 'fotos' %>
 <%= render 'videos' %>
+<%= render partial: 'parallax', locals: { center: 'bottom' } %>
 <%= render 'prensa' %>
 
 <%= render 'navbar' %>
