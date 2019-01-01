@@ -9,7 +9,7 @@
               <div class="card-image">
                 <% if (e.foto.attached?) %>
                   <figure class="image is-square">
-                    <%= image_tag e.foto.variant( combine_options: { thumbnail: '400x400^', gravity: 'north', extent: '400x40' } ), class: 'is-square' %>
+                    <%= image_tag e.foto.variant( combine_options: { thumbnail: '400x400^', gravity: 'north', extent: '400x400' } ), class: 'is-square' %>
                   </figure>
                 <% end %>
               </div>
