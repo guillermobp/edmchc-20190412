@@ -8,7 +8,7 @@
             <div class="card-image">
               <% if @encuentro.foto_quienes_somos.attached? %>
                 <figure class="image is-square">
-                  <%= image_tag @encuentro.foto_quienes_somos.variant( combine_options: { thumbnail: '400x400^', gravity: 'north', extent: '400x400' } ), class: 'is-square' %>
+                  <%= image_tag @encuentro.foto_quienes_somos.variant( combine_options: { thumbnail: '660x660^', gravity: 'east', extent: '660x660' } ), class: 'is-square' %>
                 </figure>
               <% end %>
             </div>
@@ -30,7 +30,7 @@
             <div class="card-image">
               <% if @encuentro.foto_coordinador.attached? %>
                 <figure class="image is-square">
-                  <%= image_tag @encuentro.foto_coordinador.variant( combine_options: { thumbnail: '400x400^', gravity: 'north', extent: '400x400' } ), class: 'is-square' %>
+                  <%= image_tag @encuentro.foto_coordinador.variant( combine_options: { thumbnail: '660x660^', gravity: 'north', extent: '660x660' } ), class: 'is-square' %>
                 </figure>
               <% end %>
             </div>
