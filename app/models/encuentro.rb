@@ -1,8 +1,8 @@
 class Encuentro < ApplicationRecord
-  has_many :charlas
-  has_many :exponentes
-  has_many :ensayos
-  has_many :conciertos
+  has_many :charlas, dependent: :destroy
+  has_many :exponentes, dependent: :destroy
+  has_many :ensayos, dependent: :destroy
+  has_many :conciertos, dependent: :destroy
 
   has_many_attached :logos
   has_many_attached :fotos

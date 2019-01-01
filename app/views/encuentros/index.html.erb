@@ -1,3 +1,7 @@
+<% if flash[:notice] %>
+<div class="notification is-success"><%= flash[:notice] %></div>
+<% end %>
+
 <table class="table">
     <thead>
         <tr>
@@ -9,7 +13,10 @@
     <% @encuentros.each do |e| %>
         <tr>
             <td><%= e.version %></td>
-            <td><%= link_to 'editar', edit_encuentro_path(e) %></td>
+            <td>
+              <%= link_to 'editar', edit_encuentro_path(e) %>
+              <%= link_to 'eliminar', encuentro_path(e), method: :delete, data: { confirm: '¿Está seguro?'} %>
+            </td>
         </tr>
     <% end %>
     </tbody>

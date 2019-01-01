@@ -38,6 +38,17 @@ class EncuentrosController < ApplicationController
         end
     end
 
+    def destroy
+      @encuentro = Encuentro.find(params[:id])
+      if @encuentro.destroy
+          flash[:notice] = 'El encuentro ha sido eliminado exitosamente'
+          redirect_to encuentros_path
+      else
+          flash[:alert] = 'Ocurrió un error intentando eliminar el encuentro'
+          redirect_to encuentros_path
+      end
+    end
+
     private
 
         def encuentro_params
