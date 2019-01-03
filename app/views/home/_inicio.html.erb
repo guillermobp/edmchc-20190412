@@ -1,8 +1,10 @@
 <section class="hero is-fullheight-with-navbar video" id="inicio">
   <div class="hero-video">
+    <% if @encuentro.video.attached? %>
     <video poster="" id="bgvid" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-      <source src="Ensamble.mp4" type="video/webm"/>
+      <source src="<%= url_for(@encuentro.video) %>" type="video/webm"/>
     </video>
+    <% end %>
   </div>
 
   <div class="hero-head">

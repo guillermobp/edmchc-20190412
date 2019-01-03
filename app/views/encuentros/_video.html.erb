@@ -1,0 +1,44 @@
+<div class="field is-horizontal">
+    <div class="field-label is-normal"></div>
+    <div class="field-body">
+        <div class="field">
+            <div class="control">
+                <h3 class="title is-3">Video</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="field is-horizontal">
+    <div class="field-label is-normal">
+    </div>
+    <div class="field-body">
+        <div class="field">
+            <div class="control">
+                <% if @encuentro.video.attached? %>
+                <video poster="" id="bgvid" playsinline="playsinline" muted="muted" loop="loop" controls>
+                  <source src="<%= url_for(@encuentro.video) %>" type="video/webm"/>
+                </video>
+                <% end %>
+
+                <% unless 'show' == params[:action] %>
+                <div class="control">
+                    <div class="file">
+                        <label class="file-label">
+                            <%= form.file_field :video, class: 'file-input' %>
+                            <span class="file-cta">
+                                <span class="file-icon">
+                                    <i class="fas fa-upload"></i>
+                                </span>
+                                <span class="file-label">
+                                    Examinar
+                                </span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

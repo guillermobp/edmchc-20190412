@@ -4,6 +4,7 @@ class Encuentro < ApplicationRecord
   has_many :ensayos, dependent: :destroy
   has_many :conciertos, dependent: :destroy
 
+  has_one_attached :video
   has_many_attached :logos
   has_many_attached :fotos
   has_one_attached :foto_quienes_somos
