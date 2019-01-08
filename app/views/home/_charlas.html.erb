@@ -12,7 +12,7 @@
                 </p>
               </header>
               <div class="card-content">
-                <% @encuentro.charlas.where(fecha: d.fecha).each do |c| %>
+                <% @encuentro.charlas.where(fecha: d.fecha).order(:hora_inicio).each do |c| %>
                 <p class="has-text-left">
                   <strong>
                     <%= c.titulo %>
