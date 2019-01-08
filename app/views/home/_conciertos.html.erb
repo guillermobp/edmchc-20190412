@@ -13,14 +13,8 @@
                   <div class="media-content">
                     <div class="content">
                       <p>
-                        <strong>
-                          Hora:
-                          <%= c.hora_display %>
-                          <br>Lugar:
-                          <%= c.lugar %>
-                        </strong>
-                        <br><%= c.obras %>
-                        <br><%= c.interpretes %>
+                        <%= simple_format(c.obras) %>
+                        <%= simple_format(c.interpretes) %>
                         <br><%= link_to 'Ver Fotos', concierto_fotos_path(c), class: 'button' if c.fotos.attached? %>
                       </p>
                     </div>
