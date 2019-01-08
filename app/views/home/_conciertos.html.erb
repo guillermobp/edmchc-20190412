@@ -1,27 +1,24 @@
 <section class="hero is-fullheight-with-navbar" id="conciertos">
   <div class="hero-body">
     <div class="container has-text-centered">
-      <h1 class="title is-1">Conciertos
-        <%= @encuentro.version %></h1>
-      <div class="tile is-ancestor">
-        <% @encuentro.conciertos.each do |c| %>
-          <div class="tile is-parent">
-            <article class="tile is-child notification">
-              <div class="content">
-                <h1 class="title is-3"><%= c.fecha_display %></h1>
-                <article class="media">
-                  <div class="media-content">
-                    <div class="content">
-                      <p>
-                        <%= simple_format(c.obras) %>
-                        <%= simple_format(c.interpretes) %>
-                        <br><%= link_to 'Ver Fotos', concierto_fotos_path(c), class: 'button' if c.fotos.attached? %>
-                      </p>
-                    </div>
-                  </div>
-                </article>
+      <h1 class="title is-1">Conciertos <%= @encuentro.version %></h1>
+      <div class="columns is-multiline is-mobile">
+        <% @encuentro.conciertos_por_dia.each do |d|%>
+          <div class="column is-4">
+            <div class="card" style="height:100%">
+              <header class="card-header">
+                <p class="card-header-title title is-centered">
+                  <%= d.fecha_display %>
+                </p>
+              </header>
+              <div class="card-content">
+                <% @encuentro.conciertos.where(fecha: d.fecha).each do |c| %>
+                  <%= simple_format(c.obras, class: 'has-text-left') %>
+                  <%= simple_format(c.interpretes, class: 'has-text-left') %>
+                  <br><%= link_to 'Ver Fotos', concierto_fotos_path(c), class: 'button' if c.fotos.attached? %>
+                <% end %>
               </div>
-            </article>
+            </div>
           </div>
         <% end %>
       </div>
