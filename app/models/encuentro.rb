@@ -7,6 +7,7 @@ class Encuentro < ApplicationRecord
   has_one_attached :video
   has_many_attached :logos
   has_many_attached :fotos
+  has_many_attached :fotos_ensayos
   has_one_attached :foto_quienes_somos
   has_one_attached :foto_coordinador
 
@@ -28,15 +29,15 @@ class Encuentro < ApplicationRecord
     ary
   end
 
-  def fotos_ensayos
-    ary = Array.new
-    ensayos.each do |e|
-      e.fotos.each do |f|
-        ary.push(f)
-      end
-    end
-    ary
-  end
+  # def fotos_ensayos
+  #   ary = Array.new
+  #   ensayos.each do |e|
+  #     e.fotos.each do |f|
+  #       ary.push(f)
+  #     end
+  #   end
+  #   ary
+  # end
 
   def fotos_conciertos
     ary = Array.new
