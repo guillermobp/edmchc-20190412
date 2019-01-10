@@ -49,4 +49,8 @@ class Encuentro < ApplicationRecord
     ary
   end
 
+  def hay_videos?
+    videos != nil && videos.lines.count > 0
+  end
+
 end
