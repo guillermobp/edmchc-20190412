@@ -45,6 +45,7 @@ class EncuentrosController < ApplicationController
       @encuentro.video.purge
       @encuentro.logos.purge
       @encuentro.fotos.purge
+      @encuentro.fotos_ensayos.purge
       @encuentro.foto_quienes_somos.purge
       @encuentro.foto_coordinador.purge
 
