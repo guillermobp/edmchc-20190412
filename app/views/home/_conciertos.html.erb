@@ -15,7 +15,7 @@
                 <% @encuentro.conciertos.where(fecha: d.fecha).each do |c| %>
                   <%= simple_format(c.obras, class: 'has-text-left') %>
                   <%= simple_format(c.interpretes, class: 'has-text-left') %>
-                  <br><%= link_to 'Ver Fotos', concierto_fotos_path(c), class: 'button' if c.fotos.attached? %>
+                  <br><%= link_to 'Ver Fotos', concierto_fotos_path(c), class: 'button', target: '_blank' if c.fotos.attached? %>
                 <% end %>
               </div>
             </div>

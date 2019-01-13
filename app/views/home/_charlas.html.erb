@@ -22,7 +22,7 @@
                   <% if c.lugar != '' %>
                   <br><%= c.lugar %>
                   <% end %>
-                  <br><%= link_to 'Ver Fotos', charla_fotos_path(c), class: 'button' if c.fotos.attached? %>
+                  <br><%= link_to 'Ver Fotos', charla_fotos_path(c), class: 'button', target: '_blank' if c.fotos.attached? %>
                 </p>
                 <% end %>
               </div>
