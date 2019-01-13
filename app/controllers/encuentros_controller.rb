@@ -48,6 +48,7 @@ class EncuentrosController < ApplicationController
       @encuentro.fotos_ensayos.purge
       @encuentro.foto_quienes_somos.purge
       @encuentro.foto_coordinador.purge
+      @encuentro.imagenes_prensa.purge
 
       @encuentro.charlas.each do |c|
         c.fotos.purge
@@ -77,7 +78,7 @@ class EncuentrosController < ApplicationController
     private
 
         def encuentro_params
-            params.require(:encuentro).permit(:epigrafe, :titulo, :bajada, :video, :titulo_quienes_somos, :cuerpo_quienes_somos, :foto_quienes_somos, :foto_coordinador, :videos, fotos: [], fotos_ensayos: [], logos: [])
+            params.require(:encuentro).permit(:epigrafe, :titulo, :bajada, :video, :titulo_quienes_somos, :cuerpo_quienes_somos, :foto_quienes_somos, :foto_coordinador, :videos, fotos: [], fotos_ensayos: [], logos: [], imagenes_prensa: [])
         end
 
 end

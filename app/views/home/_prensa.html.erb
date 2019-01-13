@@ -1,9 +1,32 @@
-<section class="hero is-fullheight-with-navbar" id="prensa">
+<section class="galeria fotos hero is-fullheight-with-navbar" id="prensa">
   <div class="hero-body">
-    <div class="container">
-      <h1 class="title is-1 has-text-centered">Encuentro
-        <%= @encuentro.version %>
-        en la prensa</h1>
+    <div class="container has-text-centered">
+      <h1 class="title is-1">
+        Prensa <%= @encuentro.version %>
+      </h1>
+      <div class="columns is-multiline is-mobile is-gapless">
+        <% @encuentro.imagenes_prensa.each do |i|%>
+          <div class="column is-3">
+            <div class="card" style="height:100%">
+              <div class="card-image">
+                <figure class="image is-square">
+                  <%= image_tag i.variant(
+                  combine_options: {
+                    thumbnail: '350x350^',
+                    gravity: 'north',
+                    extent: '350x350'
+                  }),
+                  class: 'is-square',
+                  data: {
+                    jslghtbx: url_for(i),
+                    jslghtbx_group: 'imagenes-prensa',
+                  } %>
+                </figure>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </section>

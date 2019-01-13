@@ -17,7 +17,11 @@
 //= require_tree .
 
 document.addEventListener("turbolinks:load", function() {
-  console.log('hola')
   var lightbox = new Lightbox();
-  lightbox.load();
+  lightbox.load({
+    nextOnClick: false,
+    onimageclick: image => {
+      window.open(image.img.src, '_blank');
+    },
+  });
 });
