@@ -10,4 +10,8 @@ class Concierto < ApplicationRecord
   def hora_display
     I18n.l(hora, format: :short)
   end
+
+  def hay_videos?
+    videos != nil && videos.lines.count > 0
+  end
 end

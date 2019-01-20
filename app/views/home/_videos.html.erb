@@ -4,9 +4,11 @@
       <h1 class="title is-1">Videos
         <%= @encuentro.version %>
       </h1>
-      <% if @encuentro.hay_videos? %>
-        <% @encuentro.videos.lines.each do |l| %>
-        <iframe width="560" height="315" src="<%= l %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <% @encuentro.conciertos.each do |c| %>
+        <% if c.hay_videos? %>
+          <% c.videos.lines.each do |l| %>
+          <iframe width="560" height="315" src="<%= l %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <% end %>
         <% end %>
       <% end %>
     </div>
