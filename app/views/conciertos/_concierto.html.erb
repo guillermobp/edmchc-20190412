@@ -11,7 +11,7 @@
 
     <div class="field is-horizontal">
         <div class="field-label is-normal">
-            <label for="fecha" class="label">Fecha / Hora</label>
+            <label for="fecha" class="label">Fecha / Hora / Lugar</label>
         </div>
         <div class="field-body">
             <div class="field is-narrow">
@@ -30,18 +30,13 @@
                 </span>
             </p>
             </div>
-        </div>
-    </div>
-
-    <div class="field is-horizontal">
-        <div class="field-label is-normal">
-            <%= form.label :lugar, class: 'label' %>
-        </div>
-        <div class="field-body">
-            <div class="field">
-                <div class="control">
-                    <%= form.text_area :lugar, class: 'textarea' %>
-                </div>
+            <div class="field is-narrow">
+            <p class="control has-icons-left">
+                <%= form.text_field :lugar, class: 'input' %>
+                <span class="icon is-small is-left">
+                    <%= icon('fas', 'calendar') %>
+                </span>
+            </p>
             </div>
         </div>
     </div>
@@ -53,7 +48,33 @@
         <div class="field-body">
             <div class="field">
                 <div class="control">
-                    <%= form.text_area :obras, class: 'textarea' %>
+                    <%= form.text_field :obras, class: 'input' %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="field is-horizontal">
+        <div class="field-label is-normal">
+            <%= form.label :compositor, class: 'label' %>
+        </div>
+        <div class="field-body">
+            <div class="field">
+                <div class="control">
+                    <%= form.text_field :compositor, class: 'input' %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="field is-horizontal">
+        <div class="field-label is-normal">
+            <%= form.label :titulo, class: 'label' %>
+        </div>
+        <div class="field-body">
+            <div class="field">
+                <div class="control">
+                    <%= form.text_field :titulo, class: 'input' %>
                 </div>
             </div>
         </div>

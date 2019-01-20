@@ -50,7 +50,7 @@ class ConciertosController < ApplicationController
     private
 
         def concierto_params
-            params.require(:concierto).permit(:fecha, :hora, :lugar, :obras, :interpretes, :videos, fotos: [])
+            params.require(:concierto).permit(:fecha, :hora, :lugar, :obras, :compositor, :titulo, :interpretes, :videos, fotos: [])
         end
 
 end

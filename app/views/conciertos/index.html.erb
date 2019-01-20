@@ -5,6 +5,8 @@
             <th>Fecha</th>
             <th>Hora</th>
             <th>Lugar</th>
+            <th>Compositor</th>
+            <th>Título</th>
             <th></th>
         </tr>
     </thead>
@@ -15,6 +17,8 @@
             <td><%= c.fecha %></td>
             <td><%= c.hora %></td>
             <td><%= c.lugar %></td>
+            <td><%= c.compositor %></td>
+            <td><%= c.titulo %></td>
             <td><%= link_to 'editar', edit_concierto_path(c) %></td>
         </tr>
     <% end %>

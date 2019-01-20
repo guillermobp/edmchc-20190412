@@ -13,7 +13,8 @@
               </header>
               <div class="card-content">
                 <% @encuentro.conciertos.where(fecha: d.fecha).each do |c| %>
-                  <%= simple_format(c.obras, class: 'has-text-left') %>
+                  <p class="has-text-left has-text-weight-bold"><%= c.compositor %></p>
+                  <p class="has-text-left is-marginless"><em><%= c.titulo %></em></p>
                   <%= simple_format(c.interpretes, class: 'has-text-left') %>
                   <br><%= link_to 'Ver Fotos', concierto_fotos_path(c), class: 'button', target: '_blank' if c.fotos.attached? %>
                 <% end %>
