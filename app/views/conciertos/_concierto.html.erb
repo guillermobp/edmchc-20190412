@@ -160,17 +160,27 @@
         </div>
     </div>
 
-    <% unless 'show' == params[:action] %>
-    <div class="field is-horizontal">
-        <div class="field-label is-normal">
-        </div>
+    <% if 'show' == params[:action] %>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal"></div>
         <div class="field-body">
-            <div class="field">
-                <div class="control">
-                    <%= form.button class: 'button is-primary' %>
-                </div>
+          <div class="field">
+            <div class="control">
+              <%= link_to 'Editar', edit_concierto_path(@concierto), { class: 'button' } %>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
+    <% else %>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal"></div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <%= form.button class: 'button is-primary' %>
+            </div>
+          </div>
+        </div>
+      </div>
     <% end %>
 <% end %>
