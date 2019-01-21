@@ -102,6 +102,22 @@ body {
       }
     } // #inicio
 
+    &#videos {
+      .card {
+        background-color: inherit;
+
+        .title.is-4 {
+          width: 560px;
+          margin: auto;
+          color: white;
+        }
+        .subtitle {
+          font-weight: bold;
+          color: #e2b728ff;
+        }
+      }
+    }
+
     &.dodecagono {
       background-color: #231f20ff;
       div.hero-body {

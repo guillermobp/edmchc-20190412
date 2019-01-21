@@ -1,16 +1,28 @@
-<section class="galeria videos hero is-fullheight-with-navbar" id="videos">
+<section class="videos hero is-fullheight-with-navbar" id="videos">
   <div class="hero-body">
     <div class="container is-fluid has-text-centered">
       <h1 class="title is-1">Videos
         <%= @encuentro.version %>
       </h1>
+      <div class="columns is-multiline is-mobile">
       <% @encuentro.conciertos.each do |c| %>
-        <% if c.hay_videos? %>
-          <% c.videos.lines.each do |l| %>
-          <iframe width="560" height="315" src="<%= l %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <% end %>
+        <% if c.tiene_video? %>
+        <div class="column">
+          <div class="card">
+            <div class="card-body">
+              <figure class="image">
+                <iframe width="560" height="315" src="<%= c.video_url %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </figure>
+            </div>
+            <div class="card-title">
+              <h2 class="subtitle is-6 is-marginless"><%= c.compositor %></h2>
+              <h1 class="title is-4"><%= c.titulo %></h1>
+            </div>
+          </div>
+        </div>
         <% end %>
       <% end %>
+      </div>
     </div>
   </div>
 </section>

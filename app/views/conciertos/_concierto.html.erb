@@ -147,6 +147,19 @@
       </div>
     </div>
 
+    <div class="field is-horizontal">
+        <div class="field-label is-normal">
+            <%= form.label :video_url, class: 'label' %>
+        </div>
+        <div class="field-body">
+            <div class="field">
+                <div class="control">
+                    <%= form.text_field :video_url, class: 'input' %>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <% unless 'show' == params[:action] %>
     <div class="field is-horizontal">
         <div class="field-label is-normal">

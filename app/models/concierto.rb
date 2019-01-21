@@ -14,4 +14,8 @@ class Concierto < ApplicationRecord
   def hay_videos?
     videos != nil && videos.lines.count > 0
   end
+
+  def tiene_video?
+    video_url != nil && video_url != ''
+  end
 end
