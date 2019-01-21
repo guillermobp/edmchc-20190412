@@ -19,6 +19,7 @@ class ConciertosController < ApplicationController
 
     def create
         @concierto = Concierto.new(concierto_params)
+        @concierto.encuentro = Encuentro.last
         if @concierto.save
             flash[:notice] = 'El concierto ha sido creado exitosamente'
             redirect_to @concierto
