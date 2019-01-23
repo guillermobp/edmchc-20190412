@@ -1,14 +1,5 @@
 <%= form_with model: @encuentro do |form| %>
 <div class="field is-horizontal">
-  <div class="field-label is-normal"></div>
-  <div class="field-body">
-    <% if flash[:notice] %>
-      <div class="notification is-success"><%= flash[:notice] %></div>
-    <% end %>
-  </div>
-</div>
-
-<div class="field is-horizontal">
   <div class="field-label is-normal">
     <%= form.label :epigrafe, class: 'label' %>
   </div>
