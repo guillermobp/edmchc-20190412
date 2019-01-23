@@ -22,7 +22,7 @@ class ConciertosController < ApplicationController
         @concierto.encuentro = Encuentro.last
         if @concierto.save
             flash[:notice] = 'El concierto ha sido creado exitosamente'
-            redirect_to @concierto
+            redirect_to conciertos_path
         else
             flash[:alert] = 'Ha ocurrido un error intentando crear el concierto'
             redirect_to new_concierto_path
@@ -33,7 +33,7 @@ class ConciertosController < ApplicationController
         @concierto = Concierto.find(params[:id])
         if @concierto.update(concierto_params)
             flash[:notice] = 'El concierto ha sido actualizado exitosamente'
-            redirect_to @concierto
+            redirect_to conciertos_path
         else
             flash[:alert] = 'Ha ocurrido un error intentando actualizar el concierto'
             redirect_to edit_concierto_path(@concierto)
