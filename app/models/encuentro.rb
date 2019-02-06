@@ -24,6 +24,10 @@ class Encuentro < ApplicationRecord
     conciertos.ordenados
   end
 
+  def conciertos_por_fecha
+    conciertos.sort.group_by(&:fecha)
+  end
+
   def fotos_charlas
     ary = Array.new
     charlas.each do |c|

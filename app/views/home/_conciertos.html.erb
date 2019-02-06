@@ -3,16 +3,16 @@
     <div class="container has-text-centered">
       <h1 class="title is-1">Conciertos <%= @encuentro.version %></h1>
       <div class="columns is-multiline is-mobile">
-        <% @encuentro.conciertos_por_dia.each do |d|%>
+        <% @encuentro.conciertos_por_fecha.each do |fecha, conciertos|%>
           <div class="column is-4">
             <div class="card" style="height:100%">
               <header class="card-header">
                 <p class="card-header-title title is-centered">
-                  <%= d.fecha_display %>
+                  <%= conciertos.first.fecha_display %>
                 </p>
               </header>
               <div class="card-content">
-                <% @encuentro.conciertos_ordenados.where(fecha: d.fecha).each do |c| %>
+                <% conciertos.each do |c| %>
                   <p class="has-text-left has-text-weight-bold"><%= c.compositor %></p>
                   <p class="has-text-left is-marginless"><em><%= c.titulo %></em></p>
                   <%= simple_format(c.interpretes, class: 'has-text-left') %>
