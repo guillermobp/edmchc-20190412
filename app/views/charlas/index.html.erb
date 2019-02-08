@@ -1,6 +1,9 @@
 <table class="table">
     <thead>
         <tr>
+            <th></th>
+            <th>Fecha</th>
+            <th>Hora</th>
             <th>Título</th>
             <th>Acciones</th>
         </tr>
@@ -8,6 +11,9 @@
     <tbody>
     <% @charlas.each do |c| %>
         <tr>
+            <td></td>
+            <td><%= c.fecha %></td>
+            <td><%= c.hora_inicio_display %></td>
             <td><%= c.titulo %></td>
             <td><%= link_to 'editar', edit_charla_path(c) %></td>
         </tr>
