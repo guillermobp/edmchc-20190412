@@ -3,16 +3,16 @@
     <div class="container has-text-centered">
       <h1 class="title is-1">Charlas <%= @encuentro.version %></h1>
       <div class="columns is-multiline is-mobile">
-        <% @encuentro.charlas_por_dia.each do |d|%>
+        <% @encuentro.charlas_por_fecha.each do |fecha, charlas|%>
           <div class="column is-4">
             <div class="card" style="height:100%">
               <header class="card-header">
                 <p class="card-header-title title is-centered">
-                  <%= d.fecha_display %>
+                  <%= charlas.first.fecha_display %>
                 </p>
               </header>
               <div class="card-content">
-                <% @encuentro.charlas.where(fecha: d.fecha).order(:hora_inicio).each do |c| %>
+                <% charlas.each do |c| %>
                 <p class="has-text-left">
                   <strong>
                     <%= c.titulo %>

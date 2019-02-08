@@ -12,8 +12,8 @@ class Encuentro < ApplicationRecord
   has_one_attached :foto_coordinador
   has_many_attached :imagenes_prensa
 
-  def charlas_por_dia
-    charlas.group(:fecha).select(:fecha)
+  def charlas_por_fecha
+    charlas.group_by(&:fecha)
   end
 
   def conciertos_por_fecha
