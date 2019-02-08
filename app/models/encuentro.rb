@@ -16,50 +16,8 @@ class Encuentro < ApplicationRecord
     charlas.group(:fecha).select(:fecha)
   end
 
-  def conciertos_por_dia
-    conciertos.order(:fecha).group(:fecha).select(:fecha)
-  end
-
-  def conciertos_ordenados
-    conciertos.ordenados
-  end
-
   def conciertos_por_fecha
     conciertos.group_by(&:fecha)
-  end
-
-  def fotos_charlas
-    ary = Array.new
-    charlas.each do |c|
-      c.fotos.each do |f|
-        ary.push(f)
-      end
-    end
-    ary
-  end
-
-  # def fotos_ensayos
-  #   ary = Array.new
-  #   ensayos.each do |e|
-  #     e.fotos.each do |f|
-  #       ary.push(f)
-  #     end
-  #   end
-  #   ary
-  # end
-
-  def fotos_conciertos
-    ary = Array.new
-    conciertos.each do |c|
-      c.fotos.each do |f|
-        ary.push(f)
-      end
-    end
-    ary
-  end
-
-  def hay_videos?
-    videos != nil && videos.lines.count > 0
   end
 
 end
