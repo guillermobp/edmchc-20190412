@@ -25,7 +25,7 @@ class Encuentro < ApplicationRecord
   end
 
   def conciertos_por_fecha
-    conciertos.sort.group_by(&:fecha)
+    conciertos.group_by(&:fecha)
   end
 
   def fotos_charlas
