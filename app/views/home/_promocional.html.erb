@@ -1,0 +1,9 @@
+<section class="hero is-fullheight-with-navbar" id="promocional">
+  <div class="hero-body is-paddingless">
+    <div class="container is-fluid is-marginless">
+      <% if @encuentro.banner_promocional.attached? %>
+      <%= image_tag @encuentro.banner_promocional %>
+      <% end %>
+    </div>
+  </div>
+</section>

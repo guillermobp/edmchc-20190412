@@ -1,4 +1,9 @@
+<%  if @encuentro.mostrar_banner_promocional? %>
+<%= render 'promocional' %>
+<% else %>
 <%= render 'inicio' %>
+<% end %>
+
 <%= render 'quienes_somos' %>
 <%= render 'exponentes' %>
 <%= render 'charlas' %>

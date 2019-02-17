@@ -5,7 +5,13 @@
 >
   <div class="navbar-menu">
     <div class="navbar-start">
+
+      <% if @encuentro.mostrar_banner_promocional? %>
+      <a href="#promocional" class="navbar-item is-tab is-active" data-turbolinks="false">Promocional</a>
+      <% else %>
       <a href="#inicio" class="navbar-item is-tab is-active" data-turbolinks="false">Inicio</a>
+      <% end %>
+
       <a href="#quienes-somos" class="navbar-item is-tab" data-turbolinks="false">Quienes Somos</a>
       <a href="#exponentes" class="navbar-item is-tab" data-turbolinks="false">Exponentes</a>
       <a href="#charlas" class="navbar-item is-tab" data-turbolinks="false">Charlas</a>

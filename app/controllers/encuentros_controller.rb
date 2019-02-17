@@ -42,6 +42,7 @@ class EncuentrosController < ApplicationController
     def destroy
       @encuentro = Encuentro.find(params[:id])
 
+      @encuentro.banner_promocional.purge
       @encuentro.video.purge
       @encuentro.logos.purge
       @encuentro.fotos.purge
@@ -78,7 +79,7 @@ class EncuentrosController < ApplicationController
     private
 
         def encuentro_params
-            params.require(:encuentro).permit(:epigrafe, :titulo, :bajada, :video, :titulo_quienes_somos, :cuerpo_quienes_somos, :foto_quienes_somos, :foto_coordinador, :videos, fotos: [], fotos_ensayos: [], logos: [], imagenes_prensa: [])
+            params.require(:encuentro).permit(:epigrafe, :titulo, :bajada, :banner_promocional, :mostrar_promocional, :video, :titulo_quienes_somos, :cuerpo_quienes_somos, :foto_quienes_somos, :foto_coordinador, :videos, fotos: [], fotos_ensayos: [], logos: [], imagenes_prensa: [])
         end
 
 end
