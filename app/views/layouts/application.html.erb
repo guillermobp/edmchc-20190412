@@ -7,19 +7,25 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="has-background-light">
     <div class="container">
-      <%= render 'layouts/navbar' %>
+      <div class="columns">
+        <div class="column is-3">
+          <%= render 'layouts/sidebar' %>
+        </div>
 
-      <% if flash[:notice] %>
-          <div class="notification is-success"><%= flash[:notice] %></div>
-      <% end %>
+        <div class="column is-9">
+          <% if flash[:notice] %>
+            <div class="notification is-success"><%= flash[:notice] %></div>
+          <% end %>
 
-      <%= yield %>
+          <%= yield %>
+        </div>
+      </div>
     </div>
   </body>
 </html>
