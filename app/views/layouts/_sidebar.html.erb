@@ -1,0 +1,32 @@
+<aside class="menu">
+  <p class="menu-label">
+    General
+  </p>
+  <ul class="menu-list">
+    <li>
+      <a>Mi cuenta</a>
+    </li>
+    <li>
+      <a>Usuarios</a>
+    </li>
+  </ul>
+  <p class="menu-label">
+    Encuentros
+  </p>
+  <ul class="menu-list">
+    <% @encuentros.each do |encuentro| %>
+      <li>
+        <%= link_to encuentro.version, edit_encuentro_path(encuentro) %>
+        <% if @encuentro == encuentro %>
+          <ul>
+            <li><%= link_to 'Charlas', encuentro_charlas_path(encuentro) %></li>
+            <li><%= link_to 'Conciertos', encuentro_conciertos_path(encuentro) %></li>
+            <li><%= link_to 'Ensayos', encuentro_ensayos_path(encuentro) %></li>
+            <li><%= link_to 'Exponentes', encuentro_exponentes_path(encuentro) %></li>
+          </ul>
+        <% end %>
+      </li>
+    <% end %>
+    <li><%= link_to 'Crear Encuentro', new_encuentro_path, class: 'button' %></li>
+  </ul>
+</aside>
