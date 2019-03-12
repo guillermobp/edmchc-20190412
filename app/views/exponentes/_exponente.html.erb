@@ -1,80 +1,73 @@
-<%= form_with model: @exponente do |form| %>
-    <div class="field is-horizontal">
-        <div class="field-label is-normal">
-            <%= form.label :nombre, class: 'label' %>
-        </div>
-        <div class="field-body">
-            <div class="field">
-                <div class="control">
-                    <%= form.text_field :nombre, class: 'input', readonly: 'show' == params[:action] %>
-                </div>
-            </div>
-        </div>
+<%= form_with model: [@encuentro, @exponente] do |form| %>
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <%= form.label :nombre, class: 'label' %>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <%= form.text_field :nombre, class: 'input', readonly: 'show' == params[:action] %>
+      </div>
     </div>
+  </div>
+</div>
 
-    <div class="field is-horizontal">
-        <div class="field-label is-normal">
-            <%= form.label :foto, class: 'label' %>
-        </div>
-        <div class="field-body">
-            <div class="field">
-                <div class="control">
-                    <% if @exponente.foto.attached? %>
-                        <%= image_tag @exponente.foto.variant(
-                            combine_options: {
-                                resize: '400',
-                                crop: '400x400+0+0',
-                                gravity: 'north'
-                            }
-                        ), class: 'is-square' %>
-                    <% end %>
-                </div>
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <%= form.label :foto, class: 'label' %>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <% if @exponente.foto.attached? %>
+          <%= image_tag @exponente.foto.variant( combine_options: { resize: '400', crop: '400x400+0+0', gravity: 'north' } ), class: 'is-square' %>
+        <% end %>
+      </div>
 
-                <% unless 'show' == params[:action] %>
-                <div class="control">
-                    <div class="file">
-                        <label class="file-label">
-                            <%= form.file_field :foto, class: 'file-input' %>
-                            <span class="file-cta">
-                                <span class="file-icon">
-                                    <i class="fas fa-upload"></i>
-                                </span>
-                                <span class="file-label">
-                                    Examinar
-                                </span>
-                            </span>
-                        </label>
-                    </div>
-                </div>
-                <% end %>
-            </div>
+      <% unless 'show' == params[:action] %>
+        <div class="control">
+          <div class="file">
+            <label class="file-label">
+              <%= form.file_field :foto, class: 'file-input' %>
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fas fa-upload"></i>
+                </span>
+                <span class="file-label">
+                  Examinar
+                </span>
+              </span>
+            </label>
+          </div>
         </div>
+      <% end %>
     </div>
+  </div>
+</div>
 
-    <div class="field is-horizontal">
-        <div class="field-label is-normal">
-            <%= form.label :bio, class: 'label' %>
-        </div>
-        <div class="field-body">
-            <div class="field">
-                <div class="control">
-                    <%= form.text_area :bio, class: 'textarea', readonly: 'show' == params[:action] %>
-                </div>
-            </div>
-        </div>
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <%= form.label :bio, class: 'label' %>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <%= form.text_area :bio, class: 'textarea', readonly: 'show' == params[:action] %>
+      </div>
     </div>
+  </div>
+</div>
 
-    <% unless 'show' == params[:action] %>
-    <div class="field is-horizontal">
-        <div class="field-label is-normal">
+<% unless 'show' == params[:action] %>
+  <div class="field is-horizontal">
+    <div class="field-label is-normal"></div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <%= form.button class: 'button is-primary' %>
         </div>
-        <div class="field-body">
-            <div class="field">
-                <div class="control">
-                    <%= form.button class: 'button is-primary' %>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
-    <% end %>
+  </div>
+<% end %>
 <% end %>

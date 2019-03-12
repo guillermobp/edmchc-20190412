@@ -1,69 +1,81 @@
-<%= form_with model: @charla do |form| %>
-    <div class="field is-horizontal">
-        <div class="field-label is-normal">
-            <%= form.label :titulo, class: 'label' %>
-        </div>
-        <div class="field-body">
-            <div class="field">
-                <div class="control">
-                    <%= form.text_field :titulo, class: 'input' %>
-                </div>
-            </div>
-        </div>
+<% disabled = true if 'show' == params[:action] %>
+  <%= form_with model: [@encuentro, @charla] do |form| %>
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <%= form.label :titulo, class: 'label' %>
     </div>
-
-    <div class="field is-horizontal">
-        <div class="field-label is-normal">
-            <%= form.label :fotos, class: 'label' %>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <%= form.text_field :titulo, class: 'input', disabled: disabled %>
         </div>
-        <div class="field-body">
-            <div class="field">
-                <div class="control">
-                    <% if @charla.fotos.attached? %>
-                        <% @charla.fotos.each do |f| %>
-                            <%= image_tag f.variant(
-                                combine_options: {
-                                    resize: '250',
-                                    crop: '250x250+0+0',
-                                    gravity: 'north'
-                                }
-                            ), class: 'is-square', data: { jslghtbx: url_for(f), jslghtbx_group: 'fotos-charlas' } %>
-                        <% end %>
-                    <% end %>
-
-                    <% unless 'show' == params[:action] %>
-                    <div class="control">
-                        <div class="file">
-                            <label class="file-label">
-                                <%= form.file_field :fotos, multiple: true, class: 'file-input' %>
-                                <span class="file-cta">
-                                    <span class="file-icon">
-                                        <i class="fas fa-upload"></i>
-                                    </span>
-                                    <span class="file-label">
-                                        Examinar
-                                    </span>
-                                </span>
-                            </label>
-                        </div>
-                    </div>
-                    <% end %>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 
-    <% unless 'show' == params[:action] %>
-    <div class="field is-horizontal">
-        <div class="field-label is-normal">
-        </div>
-        <div class="field-body">
-            <div class="field">
-                <div class="control">
-                    <%= form.button class: 'button is-primary' %>
-                </div>
-            </div>
-        </div>
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <%= form.label 'Fecha / Hora', class: 'label' %>
     </div>
-    <% end %>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <%= form.date_field :fecha, class: 'input', disabled: disabled, value: Time.now.strftime('%Y-%m-%d') %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <%= form.time_field :hora, class: 'input', disabled: disabled, value: Time.now.strftime('%H:%M') %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <%= form.label :fotos, class: 'label' %>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <% if @charla.fotos.attached? %>
+            <% @charla.fotos.each do |f| %>
+              <%= image_tag f.variant( combine_options: { resize: '250', crop: '250x250+0+0', gravity: 'north' } ), class: 'is-square', data: { jslghtbx: url_for(f), jslghtbx_group: 'fotos-charlas' } %>
+            <% end %>
+          <% end %>
+
+          <% unless 'show' == params[:action] %>
+            <div class="control">
+              <div class="file">
+                <label class="file-label">
+                  <%= form.file_field :fotos, multiple: true, class: 'file-input' %>
+                  <span class="file-cta">
+                    <span class="file-icon">
+                      <i class="fas fa-upload"></i>
+                    </span>
+                    <span class="file-label">
+                      Examinar
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <% unless 'show' == params[:action] %>
+    <div class="field is-horizontal">
+      <div class="field-label is-normal"></div>
+      <div class="field-body">
+        <div class="field">
+          <div class="control">
+            <%= form.button class: 'button is-primary' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 <% end %>
