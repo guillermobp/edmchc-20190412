@@ -1,54 +1,58 @@
-class CharlasController < ApplicationController
+# frozen_string_literal: true
 
-    def index
-        @charlas = Encuentro.last.charlas
+class CharlasController < AdminController
+  before_action :find_charla, except: %i[index new create]
+  before_action :find_encuentro, only: %i[index new create]
+
+  def index
+    @charlas = @encuentro.charlas
+  end
+
+  def new
+    @charla = @encuentro.charlas.build
+  end
+
+  def create
+    @charla = @encuentro.charlas.build(charla_params)
+    if @charla.save
+      flash[:notice] = 'La charla ha sido creada exitosamente'
+      redirect_to @charla
+    else
+      flash[:alert] = 'Ocurrió un error intentando crear la charla'
+      redirect_to new_charla_path
     end
+  end
 
-    def new
-        @charla = Charla.new
-        @charla.encuentro = Encuentro.last
+  def show; end
+
+  def edit; end
+
+  def update
+    if @charla.update(charla_params)
+      flash[:notice] = 'La charla ha sido actualizada correctamente'
+      redirect_to @charla
+    else
+      flash[:alert] = 'Ocurrió un error intentando actualizar la charla'
+      redirect_to edit_charla_path(@charla)
     end
+  end
 
-    def create
-        @charla = Charla.new(charla_params)
-        @charla.encuentro = Encuentro.last
-        if (@charla.save)
-            flash[:notice] = 'La charla ha sido creada exitosamente'
-            redirect_to @charla
-        else
-            flash[:alert] = 'Ocurrió un error intentando crear la charla'
-            redirect_to new_charla_path
-        end
-    end
+  def fotos
+    @fotos = Charla.find(params[:id]).fotos
+    render layout: 'home'
+  end
 
-    def show
-        @charla = Charla.find(params[:id])
-    end
+  private
 
-    def edit
-        @charla = Charla.find(params[:id])
-    end
+  def charla_params
+    params.require(:charla).permit(:titulo, fotos: [])
+  end
 
-    def update
-        @charla = Charla.find(params[:id])
-        if @charla.update(charla_params)
-            flash[:notice] = 'La charla ha sido actualizada correctamente'
-            redirect_to @charla
-        else
-            flash[:alert] = 'Ocurrió un error intentando actualizar la charla'
-            redirect_to edit_charla_path(@charla)
-        end
-    end
+  def find_encuentro
+    @encuentro = Encuentro.find(params[:encuentro_id])
+  end
 
-    def fotos
-      @fotos = Charla.find(params[:id]).fotos
-      render layout: 'home'
-    end
-
-    private
-
-        def charla_params
-            params.require(:charla).permit(:titulo, fotos: [])
-        end
-
+  def find_charla
+    @charla = Charla.find(params[:id])
+  end
 end

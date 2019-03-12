@@ -1,17 +1,19 @@
-class ExponentesController < ApplicationController
+# frozen_string_literal: true
 
-  def index
-    @exponentes = Encuentro.last.exponentes
-  end
+class ExponentesController < AdminController
+  before_action :find_exponente, except: %i[index new]
+  before_action :find_encuentro, only: %i[index new create]
+
+  def index; end
 
   def new
-    @exponente = Exponente.new
+    @exponente = @encuentro.exponentes.build
   end
 
   def create
     @exponente = Exponente.new(exponente_params)
     @exponente.encuentro = Encuentro.last
-    if (@exponente.save)
+    if @exponente.save
       flash[:notice] = 'El exponente ha sido creado exitosamente'
       redirect_to @exponente
     else
@@ -20,16 +22,11 @@ class ExponentesController < ApplicationController
     end
   end
 
-  def show
-    @exponente = Exponente.find(params[:id])
-  end
+  def show; end
 
-  def edit
-    @exponente = Exponente.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @exponente = Exponente.find(params[:id])
     if @exponente.update(exponente_params)
       flash[:notice] = 'El exponente ha sido actualizado exitosamente'
       redirect_to @exponente
@@ -41,7 +38,15 @@ class ExponentesController < ApplicationController
 
   private
 
-    def exponente_params
-      params.require(:exponente).permit(:foto, :nombre, :bio)
-    end
+  def exponente_params
+    params.require(:exponente).permit(:foto, :nombre, :bio)
+  end
+
+  def find_encuentro
+    @encuentro = Encuentro.find(params[:encuentro_id])
+  end
+
+  def find_exponente
+    @exponente = Exponente.find(params[:id])
+  end
 end

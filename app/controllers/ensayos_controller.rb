@@ -1,12 +1,11 @@
-class EnsayosController < ApplicationController
+class EnsayosController < AdminController
+  before_action :find_ensayo, except: %i[index new]
+  before_action :find_encuentro, only: %i[index new create]
 
-    def index
-        @ensayos = Encuentro.last.ensayos
-    end
+    def index; end
 
     def new
-        @ensayo = Ensayo.new
-        @ensayo.encuentro = Encuentro.last
+      @ensayo = @encuentro.ensayos.build
     end
 
     def create
@@ -21,16 +20,11 @@ class EnsayosController < ApplicationController
         end
     end
 
-    def show
-        @ensayo = Ensayo.find(params[:id])
-    end
+    def show; end
 
-    def edit
-        @ensayo = Ensayo.find(params[:id])
-    end
+    def edit; end
 
     def update
-        @ensayo = Ensayo.find(params[:id])
         if @ensayo.update(ensayo_params)
             flash[:notice] = 'El ensayo ha sido actualizado correctamente'
             redirect_to @ensayo
@@ -44,5 +38,13 @@ class EnsayosController < ApplicationController
 
         def ensayo_params
             params.require(:ensayo).permit(:titulo, :descripcion, fotos: [])
+        end
+
+        def find_encuentro
+          @encuentro = Encuentro.find(params[:encuentro_id])
+        end
+
+        def find_ensayo
+          @ensayo = Ensayo.find(params[:id])
         end
 end
