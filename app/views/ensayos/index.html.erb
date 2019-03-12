@@ -1,16 +1,16 @@
-<table class="table">
-    <thead>
-        <tr>
-            <th>Título</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-    <% @ensayos.each do |e| %>
-        <tr>
-            <td><%= e.titulo %></td>
-            <td><%= link_to 'editar', edit_ensayo_path(e) %></td>
-        </tr>
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @encuentro.ensayos.each do |e| %>
+      <tr>
+        <td><%= e.titulo %></td>
+        <td><%= link_to 'editar', edit_ensayo_path(e) %></td>
+      </tr>
     <% end %>
-    </tbody>
+  </tbody>
 </table>

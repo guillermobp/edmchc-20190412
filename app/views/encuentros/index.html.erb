@@ -1,19 +1,19 @@
-<table class="table">
-    <thead>
-        <tr>
-            <th>Año</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Año</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
     <% @encuentros.each do |e| %>
-        <tr>
-            <td><%= e.version %></td>
-            <td>
-              <%= link_to 'editar', edit_encuentro_path(e) %>
-              <%= link_to 'eliminar', encuentro_path(e), method: :delete, data: { confirm: '¿Está seguro?'} %>
-            </td>
-        </tr>
+      <tr>
+        <td><%= e.version %></td>
+        <td>
+          <%= link_to 'editar', edit_encuentro_path(e) %>
+          <%= link_to 'eliminar', encuentro_path(e), method: :delete, data: { confirm: '¿Está seguro?'} %>
+        </td>
+      </tr>
     <% end %>
-    </tbody>
+  </tbody>
 </table>

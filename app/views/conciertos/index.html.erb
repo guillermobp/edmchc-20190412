@@ -1,26 +1,26 @@
-<table class="table">
-    <thead>
-        <tr>
-            <th></th>
-            <th>Fecha</th>
-            <th>Hora</th>
-            <th>Lugar</th>
-            <th>Compositor</th>
-            <th>Título</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-    <% @conciertos.each do |c| %>
-        <tr>
-            <td></td>
-            <td><%= c.fecha %></td>
-            <td><%= c.hora %></td>
-            <td><%= c.lugar %></td>
-            <td><%= c.compositor %></td>
-            <td><%= c.titulo %></td>
-            <td><%= link_to 'editar', edit_concierto_path(c) %></td>
-        </tr>
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Fecha</th>
+      <th>Hora</th>
+      <th>Lugar</th>
+      <th>Compositor</th>
+      <th>Título</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @encuentro.conciertos.each do |c| %>
+      <tr>
+        <td></td>
+        <td><%= c.fecha %></td>
+        <td><%= c.hora %></td>
+        <td><%= c.lugar %></td>
+        <td><%= c.compositor %></td>
+        <td><%= c.titulo %></td>
+        <td><%= link_to 'editar', edit_concierto_path(c) %></td>
+      </tr>
     <% end %>
-    </tbody>
+  </tbody>
 </table>
