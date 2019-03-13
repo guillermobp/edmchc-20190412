@@ -12,7 +12,7 @@
     <% @charlas.each do |c| %>
       <tr>
         <td></td>
-        <td><%= c.fecha %></td>
+        <td><%= c.fecha_corta %></td>
         <td><%= c.hora_inicio_display %></td>
         <td><%= c.titulo %></td>
         <td><%= link_to 'editar', edit_charla_path(c) %></td>
