@@ -12,13 +12,22 @@
   </head>
 
   <body class="has-background-light">
-    <div class="container">
-      <div class="columns">
-        <div class="column is-3">
-          <%= render 'layouts/sidebar' %>
-        </div>
 
-        <div class="column is-9">
+    <div class="container has-background-light">
+
+      <%= render 'layouts/admin/navbar' %>
+
+      <div class="box">
+        <% if @encuentro %>
+          <h1 class="title is-1 has-text-centered">
+            Encuentro
+            <%= @encuentro.version %>
+          </h1>
+
+          <%= render 'layouts/admin/tabs' %>
+
+          <% end %>
+
           <% if flash[:notice] %>
             <div class="notification is-success"><%= flash[:notice] %></div>
           <% end %>
@@ -26,6 +35,7 @@
           <%= yield %>
         </div>
       </div>
-    </div>
+
+    <%= render 'layouts/admin/footer' %>
   </body>
 </html>

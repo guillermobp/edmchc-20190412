@@ -1,0 +1,37 @@
+<nav class="navbar box is-paddingless" role="navigation" aria-label="dropdown navigation">
+  <div class="navbar-menu">
+    <div class="navbar-start">
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Versión Encuentro
+        </a>
+
+        <div class="navbar-dropdown">
+          <% @encuentros.each do |e| %>
+          <%= link_to e.version, edit_encuentro_path(e), class: 'navbar-item' %>
+          <hr class="navbar-divider">
+          <% end %>
+          <%= link_to 'Crear Encuentro', new_encuentro_path, class: 'navbar-item' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          <%= icon('fas', 'user') %>
+        </a>
+
+        <div class="navbar-dropdown is-right">
+          <a class="navbar-item">
+            Mi Cuenta
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            Cerrar Sesión
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

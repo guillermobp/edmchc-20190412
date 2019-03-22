@@ -1,0 +1,21 @@
+<div class="box-block">
+  <div class="tabs is-centered is-medium is-boxed">
+    <ul>
+      <li class="<%= 'is-active' if @tab == 'generales' %>">
+        <%= link_to 'Generales', edit_encuentro_path(@encuentro) %>
+      </li>
+      <li class="<%= 'is-active' if @tab == 'charlas' %>">
+        <%= link_to 'Charlas', encuentro_charlas_path(@encuentro) %>
+      </li>
+      <li class="<%= 'is-active' if @tab == 'conciertos' %>">
+        <%= link_to 'Conciertos', encuentro_conciertos_path(@encuentro) %>
+      </li>
+      <li class="<%= 'is-active' if @tab == 'ensayos' %>">
+        <%= link_to 'Ensayos', encuentro_ensayos_path(@encuentro) %>
+      </li>
+      <li class="<%= 'is-active' if @tab == 'exponentes' %>">
+        <%= link_to 'Exponentes', encuentro_exponentes_path(@encuentro) %>
+      </li>
+    </ul>
+  </div>
+</div>

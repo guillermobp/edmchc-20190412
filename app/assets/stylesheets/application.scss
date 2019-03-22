@@ -14,3 +14,16 @@
 @import "font-awesome";
 @import "bulma";
 @import "lightbox";
+
+div.box {
+  margin-bottom: 24px;
+
+  div.box-block {
+    margin-bottom: 24px;
+  }
+}
+
+nav.navbar.box {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
