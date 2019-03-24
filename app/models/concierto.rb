@@ -17,6 +17,12 @@ class Concierto < ApplicationRecord
     I18n.l(hora, format: :short)
   end
 
+  def nombre_compositor
+    idx = compositor.index(' (')
+    idx_end = idx ? (idx - 1) : nil
+    compositor ? (idx_end ? compositor[0..idx_end] : compositor) : ''
+  end
+
   def tiene_video?
     video_url != nil && video_url != ''
   end
