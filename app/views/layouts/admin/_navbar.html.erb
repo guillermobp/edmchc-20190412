@@ -1,15 +1,20 @@
 <nav class="navbar box is-paddingless" role="navigation" aria-label="dropdown navigation">
   <div class="navbar-menu">
     <div class="navbar-start">
+
+      <div class="navbar-item">
+        <%= link_to icon('fas', 'home', 'Visitar Home'), root_path %>
+      </div>
+
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
-          Versión Encuentro
+          Administrar Encuentro
         </a>
 
         <div class="navbar-dropdown">
           <% @encuentros.each do |e| %>
-          <%= link_to e.version, edit_encuentro_path(e), class: 'navbar-item' %>
-          <hr class="navbar-divider">
+            <%= link_to e.version, edit_encuentro_path(e), class: 'navbar-item' %>
+            <hr class="navbar-divider">
           <% end %>
           <%= link_to 'Crear Encuentro', new_encuentro_path, class: 'navbar-item' %>
         </div>
