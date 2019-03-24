@@ -12,7 +12,6 @@ class AdminController < ApplicationController
     @tab = [
       'charlas',
       'conciertos',
-      'ensayos',
       'exponentes'
     ].index(params[:controller]) ? params[:controller] : 'generales'
   end

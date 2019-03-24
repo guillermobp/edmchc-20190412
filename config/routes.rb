@@ -7,7 +7,6 @@ Rails.application.routes.draw do
 
   resources :encuentros, shallow: true do
     resources :exponentes,
-              :ensayos,
               :coordinadores,
               :charlas,
               :conciertos

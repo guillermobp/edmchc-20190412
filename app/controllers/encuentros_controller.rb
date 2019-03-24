@@ -76,7 +76,6 @@ class EncuentrosController < AdminController
     @encuentro.imagenes_prensa.purge
     @encuentro.charlas.each { |c| c.fotos.purge }
     @encuentro.exponentes.each { |e| e.foto.purge }
-    @encuentro.ensayos.each { |e| e.fotos.purge }
     @encuentro.conciertos.each { |c| c.fotos.purge }
   end
 end
