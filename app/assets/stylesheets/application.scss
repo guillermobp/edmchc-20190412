@@ -27,3 +27,28 @@ nav.navbar.box {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+table {
+  th {
+    &.fecha {
+      width: 5rem;
+    }
+
+    &.hora {
+      width: 5rem;
+    }
+
+    &.expositor,
+    &.compositor {
+      width: 15rem;
+    }
+
+    &.imagenes {
+      width: 2rem;
+    }
+
+    &.acciones {
+      width: 7rem;
+    }
+  }
+}

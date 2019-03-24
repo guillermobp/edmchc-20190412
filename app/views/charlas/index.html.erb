@@ -1,21 +1,41 @@
 <table class="table is-fullwidth">
   <thead>
     <tr>
-      <th></th>
-      <th>Fecha</th>
-      <th>Hora</th>
-      <th>Título</th>
-      <th>Acciones</th>
+      <th class="fecha">Fecha</th>
+      <th class="hora">Hora</th>
+      <th class="expositor">Expositor</th>
+      <th class="titulo">Título</th>
+      <th class="imagenes">
+        <span class="icon">
+          <%= icon('fas', 'images') %>
+        </span>
+      </th>
+      <th class="acciones"></th>
     </tr>
   </thead>
   <tbody>
     <% @charlas.each do |c| %>
       <tr>
-        <td></td>
         <td><%= c.fecha_corta %></td>
         <td><%= c.hora_inicio_display %></td>
+        <td><%= c.expositor %></td>
         <td><%= c.titulo %></td>
-        <td><%= link_to 'editar', edit_charla_path(c) %></td>
+        <td>
+          <span class="icon">
+            <%= icon('fas', 'check') if c.fotos.attached? %>
+          </span>
+        </td>
+        <td>
+          <span class="icon">
+            <%= link_to icon('fas', 'edit'), edit_charla_path(c) %>
+          </span>
+          <span class="icon">
+            <%= link_to icon('fas', 'eye'), charla_path(c) %>
+          </span>
+          <span class="icon">
+            <%= link_to icon('fas', 'trash'), charla_path(c), method: :delete, data: { confirm: 'Esta acción es irreversible. ¿Desea continuar?' } %>
+          </span>
+        </td>
       </tr>
     <% end %>
   </tbody>
