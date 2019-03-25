@@ -43,10 +43,11 @@ class ExponentesController < AdminController
   end
 
   def find_encuentro
-    @encuentro = Encuentro.find(params[:encuentro_id])
+    @encuentro = @encuentro_tabs = Encuentro.find(params[:encuentro_id])
   end
 
   def find_exponente
     @exponente = Exponente.find(params[:id])
+    @encuentro_tabs = @exponente.encuentro
   end
 end

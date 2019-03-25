@@ -18,10 +18,10 @@
       <%= render 'layouts/admin/navbar' %>
 
       <div class="box">
-        <% if @encuentro %>
+        <% if @encuentro_tabs %>
           <h1 class="title is-1 has-text-centered">
             Encuentro
-            <%= @encuentro.version %>
+            <%= @encuentro_tabs.version %>
           </h1>
 
           <%= render 'layouts/admin/tabs' %>

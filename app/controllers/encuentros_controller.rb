@@ -62,7 +62,7 @@ class EncuentrosController < AdminController
   end
 
   def find_encuentro
-    @encuentro = Encuentro.find(params[:id])
+    @encuentro = @encuentro_tabs = Encuentro.find(params[:id])
   end
 
   def purge_attachments

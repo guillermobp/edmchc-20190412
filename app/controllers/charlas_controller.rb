@@ -49,10 +49,11 @@ class CharlasController < AdminController
   end
 
   def find_encuentro
-    @encuentro = Encuentro.find(params[:encuentro_id])
+    @encuentro = @encuentro_tabs = Encuentro.find(params[:encuentro_id])
   end
 
   def find_charla
     @charla = Charla.find(params[:id])
+    @encuentro_tabs = @charla.encuentro
   end
 end
