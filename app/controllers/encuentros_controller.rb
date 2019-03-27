@@ -44,7 +44,8 @@ class EncuentrosController < AdminController
   private
 
   def encuentro_params
-    params.require(:encuentro).permit(:epigrafe,
+    params.require(:encuentro).permit(:version,
+                                      :epigrafe,
                                       :titulo,
                                       :bajada,
                                       :banner_promocional,
