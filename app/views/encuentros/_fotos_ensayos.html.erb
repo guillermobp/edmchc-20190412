@@ -1,50 +1,43 @@
 <div class="field is-horizontal">
-    <div class="field-label is-normal"></div>
-    <div class="field-body">
-        <div class="field">
-            <div class="control">
-                <h3 class="title is-3">Fotos Ensayos</h3>
-            </div>
-        </div>
+  <div class="field-label is-normal"></div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <h3 class="title is-3">Fotos Ensayos</h3>
+      </div>
     </div>
+  </div>
 </div>
 
 <div class="field is-horizontal">
-    <div class="field-label is-normal">
-    </div>
-    <div class="field-body">
-        <div class="field">
-            <div class="control">
-                <% if @encuentro.fotos_ensayos.attached? %>
-                    <% @encuentro.fotos_ensayos.each do |f| %>
-                        <%= image_tag f.variant(
-                            combine_options: {
-                                resize: '250',
-                                crop: '250x250+0+0',
-                                gravity: 'north'
-                            }
-                        ), class: 'is-square' %>
-                    <% end %>
-                <% end %>
+  <div class="field-label is-normal"></div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <% if @encuentro.fotos_ensayos.attached? %>
+          <% @encuentro.fotos_ensayos.each do |f| %>
+            <%= image_tag f.variant(combine_options: { thumbnail: '250x250^', gravity: 'north', extent: '250x250' }), class: 'is-square', data: { jslghtbx: url_for(f), jslghtbx_group: 'fotos-ensayos' } %>
+          <% end %>
+        <% end %>
 
-                <% unless 'show' == params[:action] %>
-                <div class="control">
-                    <div class="file">
-                        <label class="file-label">
-                            <%= form.file_field :fotos_ensayos, multiple: true, class: 'file-input' %>
-                            <span class="file-cta">
-                                <span class="file-icon">
-                                    <i class="fas fa-upload"></i>
-                                </span>
-                                <span class="file-label">
-                                    Examinar
-                                </span>
-                            </span>
-                        </label>
-                    </div>
-                </div>
-                <% end %>
+        <% unless 'show' == params[:action] %>
+          <div class="control">
+            <div class="file">
+              <label class="file-label">
+                <%= form.file_field :fotos_ensayos, multiple: true, class: 'file-input' %>
+                <span class="file-cta">
+                  <span class="file-icon">
+                    <i class="fas fa-upload"></i>
+                  </span>
+                  <span class="file-label">
+                    Examinar
+                  </span>
+                </span>
+              </label>
             </div>
-        </div>
+          </div>
+        <% end %>
+      </div>
     </div>
+  </div>
 </div>
