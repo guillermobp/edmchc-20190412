@@ -4,9 +4,7 @@ class CharlasController < AdminController
   before_action :find_charla, except: %i[index new create]
   before_action :find_encuentro, only: %i[index new create]
 
-  def index
-    @charlas = @encuentro.charlas
-  end
+  def index; end
 
   def new
     @charla = @encuentro.charlas.build
