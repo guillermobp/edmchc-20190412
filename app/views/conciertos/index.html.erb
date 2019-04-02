@@ -21,7 +21,7 @@
         <td><%= c.fecha_corta %></td>
         <td><%= c.hora_display %></td>
         <td><%= c.nombre_compositor %></td>
-        <td><%= c.titulo %></td>
+        <td><%= simple_format(c.titulo) %></td>
         <td>
           <span class="icon">
             <%= icon('fas', 'check') if c.fotos.attached? %>
