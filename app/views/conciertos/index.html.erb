@@ -19,7 +19,7 @@
     <% @encuentro.conciertos.each do |c| %>
       <tr>
         <td><%= c.fecha_corta %></td>
-        <td><%= c.hora %></td>
+        <td><%= c.hora_display %></td>
         <td><%= c.nombre_compositor %></td>
         <td><%= c.titulo %></td>
         <td>
