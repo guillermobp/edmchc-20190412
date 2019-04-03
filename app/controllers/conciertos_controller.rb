@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ConciertosController < AdminController
-  before_action :find_concierto, except: %i[index new]
+  before_action :find_concierto, except: %i[index new create]
   before_action :find_encuentro, only: %i[index new create]
 
   def index; end

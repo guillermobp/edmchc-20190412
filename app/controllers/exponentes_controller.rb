@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ExponentesController < AdminController
-  before_action :find_exponente, except: %i[index new]
+  before_action :find_exponente, except: %i[index new create]
   before_action :find_encuentro, only: %i[index new create]
 
   def index; end
