@@ -14,10 +14,10 @@ class CharlasController < AdminController
     @charla = @encuentro.charlas.build(charla_params)
     if @charla.save
       flash[:notice] = 'La charla ha sido creada exitosamente'
-      redirect_to @charla
+      redirect_to encuentro_charlas_path(@charla.encuentro)
     else
       flash[:alert] = 'Ocurrió un error intentando crear la charla'
-      redirect_to new_charla_path
+      redirect_to new_encuentro_charla_path(@encuentro)
     end
   end
 
@@ -28,7 +28,7 @@ class CharlasController < AdminController
   def update
     if @charla.update(charla_params)
       flash[:notice] = 'La charla ha sido actualizada correctamente'
-      redirect_to @charla
+      redirect_to encuentro_charlas_path(@charla.encuentro)
     else
       flash[:alert] = 'Ocurrió un error intentando actualizar la charla'
       redirect_to edit_charla_path(@charla)

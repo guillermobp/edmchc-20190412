@@ -18,17 +18,17 @@ class ConciertosController < AdminController
     @concierto = @encuentro.conciertos.build(concierto_params)
     if @concierto.save
       flash[:notice] = 'El concierto ha sido creado exitosamente'
-      redirect_to conciertos_path
+      redirect_to encuentro_conciertos_path(@encuentro)
     else
       flash[:alert] = 'Ha ocurrido un error intentando crear el concierto'
-      redirect_to new_concierto_path
+      redirect_to new_encuentro_concierto_path(@encuentro)
     end
   end
 
   def update
     if @concierto.update(concierto_params)
       flash[:notice] = 'El concierto ha sido actualizado exitosamente'
-      redirect_to conciertos_path
+      redirect_to encuentro_conciertos_path(@concierto.encuentro)
     else
       flash[:alert] = 'Ha ocurrido un error intentando actualizar el concierto'
       redirect_to edit_concierto_path(@concierto)

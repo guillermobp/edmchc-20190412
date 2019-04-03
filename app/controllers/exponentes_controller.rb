@@ -14,10 +14,10 @@ class ExponentesController < AdminController
     @exponente = @encuentro.exponentes.build(exponente_params)
     if @exponente.save
       flash[:notice] = 'El exponente ha sido creado exitosamente'
-      redirect_to @exponente
+      redirect_to encuentro_exponentes_path(@encuentro)
     else
       flash[:alert] = 'Ocurrió un error intentando crear el exponente'
-      redirect_to new_exponente_path
+      redirect_to new_encuentro_exponente_path(@encuentro)
     end
   end
 
@@ -28,7 +28,7 @@ class ExponentesController < AdminController
   def update
     if @exponente.update(exponente_params)
       flash[:notice] = 'El exponente ha sido actualizado exitosamente'
-      redirect_to @exponente
+      redirect_to encuentro_exponentes_path(@exponente.encuentro)
     else
       flash[:alert] = 'Ocurrió un error intentando actualizar el exponente'
       redirect_to edit_exponente_path(@exponente)
