@@ -15,8 +15,7 @@ class ConciertosController < AdminController
   def edit; end
 
   def create
-    @concierto = Concierto.new(concierto_params)
-    @concierto.encuentro = Encuentro.last
+    @concierto = @encuentro.conciertos.build(concierto_params)
     if @concierto.save
       flash[:notice] = 'El concierto ha sido creado exitosamente'
       redirect_to conciertos_path

@@ -11,8 +11,7 @@ class ExponentesController < AdminController
   end
 
   def create
-    @exponente = Exponente.new(exponente_params)
-    @exponente.encuentro = Encuentro.last
+    @exponente = @encuentro.exponentes.build(exponente_params)
     if @exponente.save
       flash[:notice] = 'El exponente ha sido creado exitosamente'
       redirect_to @exponente
