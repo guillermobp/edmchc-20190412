@@ -3,13 +3,13 @@ class EncuentrosController < AdminController
 
   def index; end
 
-  def new
-    @encuentro = Encuentro.new
-  end
+  def show; end
 
   def edit; end
 
-  def show; end
+  def new
+    @encuentro = Encuentro.new
+  end
 
   def create
     @encuentro = Encuentro.new(encuentro_params)

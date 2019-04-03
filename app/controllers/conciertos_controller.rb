@@ -8,11 +8,11 @@ class ConciertosController < AdminController
 
   def show; end
 
+  def edit; end
+
   def new
     @concierto = @encuentro.conciertos.build
   end
-
-  def edit; end
 
   def create
     @concierto = @encuentro.conciertos.build(concierto_params)

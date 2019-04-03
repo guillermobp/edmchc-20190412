@@ -6,6 +6,10 @@ class CharlasController < AdminController
 
   def index; end
 
+  def show; end
+
+  def edit; end
+
   def new
     @charla = @encuentro.charlas.build
   end
@@ -21,10 +25,6 @@ class CharlasController < AdminController
     end
   end
 
-  def show; end
-
-  def edit; end
-
   def update
     if @charla.update(charla_params)
       flash[:notice] = 'La charla ha sido actualizada correctamente'
@@ -34,6 +34,8 @@ class CharlasController < AdminController
       redirect_to edit_charla_path(@charla)
     end
   end
+
+  def destroy; end
 
   def fotos
     @fotos = Charla.find(params[:id]).fotos

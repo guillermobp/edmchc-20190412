@@ -6,6 +6,10 @@ class ExponentesController < AdminController
 
   def index; end
 
+  def show; end
+
+  def edit; end
+
   def new
     @exponente = @encuentro.exponentes.build
   end
@@ -21,10 +25,6 @@ class ExponentesController < AdminController
     end
   end
 
-  def show; end
-
-  def edit; end
-
   def update
     if @exponente.update(exponente_params)
       flash[:notice] = 'El exponente ha sido actualizado exitosamente'
@@ -34,6 +34,8 @@ class ExponentesController < AdminController
       redirect_to edit_exponente_path(@exponente)
     end
   end
+
+  def destroy; end
 
   private
 
