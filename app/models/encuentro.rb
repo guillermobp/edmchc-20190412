@@ -12,6 +12,8 @@ class Encuentro < ApplicationRecord
   has_one_attached :foto_coordinador
   has_many_attached :imagenes_prensa
 
+  default_scope { order(:version) }
+
   def mostrar_banner_promocional?
     mostrar_promocional != nil && mostrar_promocional? && banner_promocional.attached?
   end
