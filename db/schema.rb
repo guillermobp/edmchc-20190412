@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_24_232448) do
+ActiveRecord::Schema.define(version: 2019_04_10_105413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 2019_03_24_232448) do
     t.text "bio_coordinador"
     t.text "videos"
     t.boolean "mostrar_promocional"
+    t.boolean "habilitado"
   end
 
   create_table "exponentes", force: :cascade do |t|
