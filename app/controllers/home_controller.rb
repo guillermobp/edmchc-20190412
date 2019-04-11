@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @encuentro = Encuentro.last
+    @encuentro = Encuentro.where(habilitado: true).last
   end
 end
