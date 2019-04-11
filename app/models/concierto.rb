@@ -18,9 +18,11 @@ class Concierto < ApplicationRecord
   end
 
   def nombre_compositor
-    idx = compositor.index(' (')
-    idx_end = idx ? (idx - 1) : nil
-    compositor ? (idx_end ? compositor[0..idx_end] : compositor) : ''
+    if compositor
+      idx = compositor.index(' (')
+      idx_end = idx ? (idx - 1) : nil
+      idx_end ? compositor[0..idx_end] : compositor
+    end
   end
 
   def tiene_video?
