@@ -144,24 +144,16 @@
   </div>
 </div>
 
-<% if 'show' == params[:action] %>
+<% unless 'show' == params[:action] %>
   <div class="field is-horizontal">
     <div class="field-label is-normal"></div>
     <div class="field-body">
-      <div class="field">
+      <div class="field is-grouped">
         <div class="control">
-          <%= link_to 'Editar', edit_concierto_path(@concierto), { class: 'button' } %>
+          <%= form.button class: 'button is-link' %>
         </div>
-      </div>
-    </div>
-  </div>
-<% else %>
-  <div class="field is-horizontal">
-    <div class="field-label is-normal"></div>
-    <div class="field-body">
-      <div class="field">
         <div class="control">
-          <%= form.button class: 'button is-primary' %>
+          <%= link_to 'Cancelar', encuentro_conciertos_path(@concierto.encuentro), class: 'button is-text' %>
         </div>
       </div>
     </div>
