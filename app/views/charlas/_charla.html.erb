@@ -70,9 +70,12 @@
     <div class="field is-horizontal">
       <div class="field-label is-normal"></div>
       <div class="field-body">
-        <div class="field">
+        <div class="field is-grouped">
           <div class="control">
-            <%= form.button class: 'button is-primary' %>
+            <%= form.button class: 'button is-link' %>
+          </div>
+          <div class="control">
+            <%= link_to 'Cancelar', encuentro_charlas_path(@charla.encuentro), class: 'button is-text' %>
           </div>
         </div>
       </div>

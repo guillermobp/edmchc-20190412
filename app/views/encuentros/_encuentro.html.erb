@@ -120,24 +120,13 @@
 
 <%= render partial: 'imagenes_prensa', locals: { form: form } %>
 
-<% if 'show' == params[:action] %>
+<% unless 'show' == params[:action] %>
   <div class="field is-horizontal">
     <div class="field-label is-normal"></div>
     <div class="field-body">
       <div class="field">
         <div class="control">
-          <%= link_to 'Editar', edit_encuentro_path(@encuentro), { class: 'button' } %>
-        </div>
-      </div>
-    </div>
-  </div>
-<% else %>
-  <div class="field is-horizontal">
-    <div class="field-label is-normal"></div>
-    <div class="field-body">
-      <div class="field">
-        <div class="control">
-          <%= form.button class: 'button is-primary' %>
+          <%= form.button class: 'button is-link' %>
         </div>
       </div>
     </div>
